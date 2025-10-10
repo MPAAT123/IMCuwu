@@ -6,27 +6,30 @@ export default function App() {
   return (
     <View style={styles.maincontainer}>
       <View style={styles.inputConteiner}>
-        <Text style={styles.inputConteiner}>
-           peso en kilogramos de la persona</Text>
-        <TextInput keyboardType='numeric'/>
-      
-        <Text> estatura en metros de la persona </Text>
 
-        <TextInput
+        <Text style={styles.Textstyle}>
+           peso en kilogramos de la persona </Text>
+
+        <TextInput style={styles.InputStyle}
+         keyboardType='numeric'/>
+      
+        <Text style={styles.Textstyle}> estatura en metros de la persona </Text>
+
+        <TextInput style={styles.InputStyle}
         keyboardType='numeric' />
       
       </View>
 
-      <View>
+      <View style={styles.commandContainer}>
       <button title='CALCULAR'/>
       <button title='LIMPIAR'/>
       </View>
 
-      <View>
-           <Text>    'El indice de masa corporal de la persona es: '</Text>
-           <Text>    24 </Text>
+      <View style={styles.textResultStyle}>
+           <Text> El indice de masa corporal de la persona es:</Text>
+           <Text style={styles.textResultStyle}>    24 </Text>
            <Text>    El Estado nutricional  de la persona es: </Text>
-           <Text>    Normal </Text>
+           <Text style={styles.textResultStyle}>   Peso Normal </Text>
 
       </View>
       <StatusBar style="auto" />
@@ -64,7 +67,7 @@ commandContainer: {
 }, 
 
 resultContainer: {
-   borderColor: 'orange',
+  borderColor: 'orange',
   borderwhitd: 1,
   borderRadius:10,
   padding:16
