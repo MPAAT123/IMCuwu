@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import {button, StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput,Button } from 'react-native';
 
 
 export default function App() {
@@ -8,12 +8,12 @@ export default function App() {
       <View style={styles.inputConteiner}>
 
         <Text style={styles.Textstyle}>
-           peso en kilogramos de la persona </Text>
+           Peso en kilogramos de la persona </Text>
 
         <TextInput style={styles.InputStyle}
          keyboardType='numeric'/>
       
-        <Text style={styles.Textstyle}> estatura en metros de la persona </Text>
+        <Text style={styles.Textstyle}> Estatura en metros de la persona </Text>
 
         <TextInput style={styles.InputStyle}
         keyboardType='numeric' />
@@ -21,8 +21,8 @@ export default function App() {
       </View>
 
       <View style={styles.commandContainer}>
-      <button title='CALCULAR'/>
-      <button title='LIMPIAR'/>
+      <Button title='CALCULAR'/>
+      <Button title='LIMPIAR'/>
       </View>
 
       <View style={styles.textResultStyle}>
@@ -52,13 +52,13 @@ inputConteiner:{
  padding:16
 },
 Textstyle:{
- fontSize: 26,
+ fontSize: 18,
 },
 InputStyle :{
   fontSize: 16,
-  borderWidth: 16,
+  borderWidth: 2,
   borderColor: 'gray',
-  marginVertical: 16,
+  marginVertical: 5,
 },
 commandContainer: {
   flexDirection: 'row',
