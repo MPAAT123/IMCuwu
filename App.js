@@ -1,8 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
+import {  useState } from 'react';
 import { StyleSheet, Text, View, TextInput,Button } from 'react-native';
 
 
 export default function App() {
+
+  const[pesoText,setPesoText] = useState('');
+  const[estaturaText,setEstaturaText] = useState('');
+  const[imcText, seticmText] = useState('');
+  const[EstadoNutriText,setEstadoNutriText]= useState('');
+  function onCalcularButtonTapped (){
+   /* console.log("el peso es "+ peso);
+    console.log("la estatura es "+ estatura);*/
+
+   const peso =  Number(pesoText);
+   const estatura =  Number(estaturaText);
+   const imc = newFunction(peso, estatura);
+    seticmText(imc.toFixed(4))
+ setEstadoNutriText(DeterminacionEstadoNutricional(imc));
+
+  }
+
   return (
     <View style={styles.maincontainer}>
       <View style={styles.inputConteiner}>
@@ -11,31 +29,72 @@ export default function App() {
            Peso en kilogramos de la persona </Text>
 
         <TextInput style={styles.InputStyle}
-         keyboardType='numeric'/>
-      
+         keyboardType='numeric' 
+         onChangeText={setPesoText}
+         value={pesoText} />
+        
+        
         <Text style={styles.Textstyle}> Estatura en metros de la persona </Text>
 
         <TextInput style={styles.InputStyle}
-        keyboardType='numeric' />
+        keyboardType='numeric'  
+         onChangeText={setEstaturaText}
+         value={estaturaText}/>
       
       </View>
 
       <View style={styles.commandContainer}>
-      <Button title='CALCULAR'/>
-      <Button title='LIMPIAR'/>
+      <Button title='CALCULAR'
+      onPress={onCalcularButtonTapped}/>
+      <Button title='LIMPIAR'
+      onPress={onLimpiar}/>
       </View>
 
       <View style={styles.textResultStyle}>
            <Text> El indice de masa corporal de la persona es:</Text>
-           <Text style={styles.textResultStyle}>    24 </Text>
+           <Text style={styles.textResultStyle}>    
+            {imcText} </Text>
+
            <Text>    El Estado nutricional  de la persona es: </Text>
-           <Text style={styles.textResultStyle}>   Peso Normal </Text>
+           <Text style={styles.textResultStyle}>   {EstadoNutriText} </Text>
 
       </View>
       <StatusBar style="auto" />
     </View>
   );
+
+  function newFunction(peso, estatura) {
+    return peso /(estatura * estatura);
+  }
+
+  function DeterminacionEstadoNutricional(imc) {
+    if(imc< 18.5){
+        return "peso bajo";
+    }
+    if (imc < 25.0){
+      return "normal";
+    }
+    if(imc < 30.0){
+       return "sobrepeso";
+    }
+     if (imc < 40.0){
+      return "Obecidad"
+     }
+  }
+    
+
+
+   function onLimpiar(){
+
+    setPesoText('');
+    setEstaturaText('');
+    seticmText('');
+    setEstadoNutriText('');
+   }
+
 }
+
+
 
 const styles = StyleSheet.create({
   maincontainer: {
