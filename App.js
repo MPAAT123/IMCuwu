@@ -23,6 +23,7 @@ export default function App() {
 
   return (
     <View style={styles.maincontainer}>
+      
       <View style={styles.inputConteiner}>
 
         <Text style={styles.Textstyle}>
@@ -84,8 +85,8 @@ export default function App() {
     
 
 
-   function onLimpiar(){
-
+   function onLimpiar()
+   {
     setPesoText('');
     setEstaturaText('');
     seticmText('');
